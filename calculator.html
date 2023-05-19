@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="input_box">
+                <input type="text" class="calculator_screen">
+
+            </div>
+            <div class="button_box">
+                <button type="button" class="allclear_button" style="font-weight: bold;">AC</button>
+                <button type="button" class="delete_button" style="font-weight: bold;">DE</button>
+                <button type="button" class="button" style="font-weight: bold;">%</button>
+                <button type="button" class="button" style="font-weight: bold;">/</button>
+            </div>
+            <div class="button_box">
+                <button type="button" class="button">7</button>
+                <button type="button" class="button">8</button>
+                <button type="button" class="button">9</button>
+                <button type="button" class="button" style="font-weight: bold;">*</button>
+            </div>
+            <div class="button_box">
+                <button type="button" class="button">4</button>
+                <button type="button" class="button">5</button>
+                <button type="button" class="button">6</button>
+                <button type="button" class="button" style="font-weight: bold;">-</button>
+            </div>
+            <div class="button_box">
+                <button type="button" class="button">1</button>
+                <button type="button" class="button">2</button>
+                <button type="button" class="button">3</button>
+                <button type="button" class="button" style="font-weight: bold;">+</button>
+            </div>
+            <div class="button_box">
+                <button type="button" class="button">0</button>
+                <button type="button" class="button">00</button>
+                <button type="button" class="button">.</button>
+                <button type="button" class="equal" style="background-color: #000; color: #fff; font-weight: bold;">=</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    let button = document.querySelectorAll(".button");
+    let calculator_screen = document.querySelector(".calculator_screen");
+    let allclear_button = document.querySelector(".allclear_button");
+    let delete_button = document.querySelector(".delete_button");
+    let equal = document.querySelector(".equal");
+
+    allclear_button.onclick = function() {
+        calculator_screen.value = "";
+    }
+    delete_button.onclick = function() {
+        calculator_screen.value = calculator_screen.value.substring(0, calculator_screen.value.length - 1);
+    }
+    equal.onclick = function() {
+        let answer = eval(calculator_screen.value);
+
+        calculator_screen.value = "=" +
+            answer;
+    }
+
+    array.forEach(button => {
+        button.onclick = function() {
+            if (calculator_screen.value.substring(0, 1) == "=") {
+                calculator_screen.value = "";
+            } else {
+                calculator_screen.value += button.innerHTML;
+            }
+        }
+    });
+</script>
+
+</html>
